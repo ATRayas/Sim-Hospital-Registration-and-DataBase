@@ -12,13 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79811c4e-c675-4525-8930-6cdbbb4f72a1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Address.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Address.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Address.h" beforeDir="false" afterPath="$PROJECT_DIR$/Address.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Alergy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Alergy.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Alergy.h" beforeDir="false" afterPath="$PROJECT_DIR$/Alergy.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OverArch.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/OverArch.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Patient.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Patient.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Patient.h" beforeDir="false" afterPath="$PROJECT_DIR$/Patient.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,8 +33,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Alergy.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="27" column="83" selection-start-line="27" selection-start-column="83" selection-end-line="27" selection-end-column="83" />
+            <state relative-caret-position="609">
+              <caret line="29" column="19" lean-forward="true" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
               <folding>
                 <element signature="e#98#115#0" expanded="true" />
               </folding>
@@ -73,6 +67,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Alergy.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="38" column="60" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Address.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="756">
@@ -99,20 +102,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/OverArch.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="123" column="94" selection-start-line="123" selection-start-column="94" selection-end-line="123" selection-end-column="94" />
+            <state relative-caret-position="277">
+              <caret line="153" column="14" selection-start-line="153" selection-start-column="14" selection-end-line="153" selection-end-column="14" />
               <folding>
                 <element signature="e#45#64#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Alergy.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="38" column="60" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -136,6 +130,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>holder</find>
+      <find>newpatient</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -152,8 +147,8 @@
         <option value="$PROJECT_DIR$/Address.cpp" />
         <option value="$PROJECT_DIR$/Patient.h" />
         <option value="$PROJECT_DIR$/Patient.cpp" />
-        <option value="$PROJECT_DIR$/Alergy.h" />
         <option value="$PROJECT_DIR$/Alergy.cpp" />
+        <option value="$PROJECT_DIR$/Alergy.h" />
         <option value="$PROJECT_DIR$/OverArch.cpp" />
       </list>
     </option>
@@ -224,7 +219,7 @@
       <workItem from="1570844484877" duration="2175000" />
       <workItem from="1570846781110" duration="828000" />
       <workItem from="1570858665567" duration="1424000" />
-      <workItem from="1570903103098" duration="4823000" />
+      <workItem from="1570903103098" duration="7144000" />
     </task>
     <task id="LOCAL-00001" summary="prep for address files and most likely going to add disease section or atleast primary reason for arrival">
       <created>1570859481730</created>
@@ -237,7 +232,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19246000" />
+    <option name="totallyTimeSpent" value="21567000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -319,13 +314,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Patient.cpp">
+    <entry file="file://$PROJECT_DIR$/Patient.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+        <state relative-caret-position="602">
+          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#100#117#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alergy.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="29" column="19" lean-forward="true" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+          <folding>
+            <element signature="e#98#115#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alergy.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="38" column="60" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -339,37 +351,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Alergy.h">
+    <entry file="file://$PROJECT_DIR$/Patient.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="27" column="83" selection-start-line="27" selection-start-column="83" selection-end-line="27" selection-end-column="83" />
+        <state relative-caret-position="714">
+          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
           <folding>
-            <element signature="e#98#115#0" expanded="true" />
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Patient.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-          <folding>
-            <element signature="e#100#117#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Alergy.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="38" column="60" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/OverArch.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="123" column="94" selection-start-line="123" selection-start-column="94" selection-end-line="123" selection-end-column="94" />
+        <state relative-caret-position="277">
+          <caret line="153" column="14" selection-start-line="153" selection-start-column="14" selection-end-line="153" selection-end-column="14" />
           <folding>
             <element signature="e#45#64#0" expanded="true" />
           </folding>
