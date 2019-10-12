@@ -32,12 +32,11 @@ void Alergy::symptomsDelete(string sympDel){
     }
 
 }
-void Alergy::dataStart(string report, string symp, string descript, int sev){
-//    cout<< "Only enter one symp";
+void Alergy::dataStart(string report, vector<string> symp, string descript, vector<int> sev){
     reporter = report;
-    symptoms.push_back(symp);
+    symptoms.insert(symptoms.end(), symp.begin(), symp.end());
     description = (descript);
-    severity.push_back(sev);
+    severity.insert(severity.end(), sev.begin(), sev.end());
 }
 
 void Alergy::addSym(string sympA, int sev){

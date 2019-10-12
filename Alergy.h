@@ -17,20 +17,19 @@ private:
 
 public:
     Alergy();
-    void changeDescription(string newDescrip);
-
-    void symptomsDelete(string sympDel);
-
-    void dataStart(string report, string symp, string descript, int sev);
-
-    void addSym(string sympA, int sev);
-
-    void dataOut();
 
     string getReporter() { return reporter; }
     vector<string> getSymptoms() { return symptoms; }
     string getDescription()  { return description; }
     vector<int> getSeverity()  { return severity; }
+
+    void changeDescription(string newDescrip);
+    void symptomsDelete(string sympDel);
+    void dataStart(string report, vector<string> symp, string descript, vector<int> sev);
+    void addSym(string sympA, int sev);
+    void dataOut();
+
+
 };
 
 

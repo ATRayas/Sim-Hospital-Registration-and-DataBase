@@ -7,9 +7,11 @@
 #include "Alergy.h"
 #include "OverArch.h"
 #include "Patient.h"
+#include "Address.h"
 
 struct patientData {
     Patient patientInfo;
+    Address address;
     Alergy patientAllergy;
 };
 
@@ -63,17 +65,70 @@ int main(){
                 patientData newPatient;
                 cout << "1: Enter Patient Data: name, address, phone number, emergency contact number, and gender"
                      << endl;
-                cout << "2: Enter Patient's Allergy info reporter's name, symptoms,"
+                cout << "2: Does Patient have allergies enter yes for yes and no for no:" << endl;
+                string userInput;
+                cin >> userInput;
+                if(userInput == "yes") {
+                    cout << "Reporter's name: ";
+                    string tempRepoName;
+                    cin >> tempRepoName;
+                    cout << "Enter multiple for more than one allergies and anything for one: ";
+                    vector<string> tempSymp;
+                    string userInput;
+                    cin >> userInput;
+                    cout << endl;
+                    int numSymp = 1;
+                    if (userInput == "multiple") {
+                        cout << "Enter number of symptoms: ";
+
+                        cin >> numSymp;
+                        cout << endl;
+
+                        for (int i = numSymp; i < numSymp; i++) {
+                            string tempSympInput;
+                            cin >> tempSympInput;
+                            cout << endl;
+                            tempSymp.push_back(tempSympInput);
+
+                        }
+                    } else {
+                        string tempOneSymp ;
+                        cin >> tempOneSymp;
+                        tempSymp.push_back(tempOneSymp);
+                        cout << endl;
+                    }
+                    cout << "Enter severity numbers of each symptom in order entered: ";
+                    if (userInput == "multiple") {
+                        for (int i = numSymp; i < numSymp; i++) {
+                            string tempSympInput;
+                            cin >> tempSympInput;
+                            cout << endl;
+                            tempSymp.push_back(tempSympInput);
+                        }
+                    }
+                    else {
+                        int tempSev;
+                        cin >> tempSev;
+                        cout << endl;
+                    }
+                    cout << "Enter description of allergy/allergies: ";
+                    string tempDescription;
+                    cin >> tempDescription;
+                    cout << endl;
+                }
+                else{
+                    alergy.dataStart("None", {"None"}, "difficulty breathing", {0});
+                }
+                cout << "3: Enter Patient's Address info: reporter's name, symptoms,"
                         " description of allergy/allergies, severity number: " << endl;
-                patient.dataStart("Alejandro Rayas", "6341 W Verde Lane", "6026961550", "None", "09/26/1995", "Male");
+                patient.dataStart("Alejandro Rayas", "6026961550", "None", "09/26/1995", "Male");
                 cout << "Task 1 complete" << endl;
                 newPatient.patientInfo = patient;
-                alergy.dataStart("Faustino Rayas", "Asthma", "difficulty breathing", 2);
+                alergy.dataStart("Faustino Rayas", {"Asthma"}, "difficulty breathing", 2);
                 cout << "Task 2 complete" << endl;
                 newPatient.patientAllergy = alergy;
                 patientDataBase.holder.push_back(newPatient);
                 cout << "Are you sure you are done? Enter Yes for Yes:";
-                string userInput;
                 cin >> userInput;
                 cout << endl;
                 if (userInput == "Yes") {
