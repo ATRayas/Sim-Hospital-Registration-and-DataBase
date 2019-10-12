@@ -6,18 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/c/Users/Alejandro/Documents/GitHub/Sim-Hospital-Registration-and-DataBase/Alergy.cpp
-Alergy.h
-/cygdrive/c/Users/Alejandro/Documents/GitHub/Sim-Hospital-Registration-and-DataBase/Alergy.h
-iostream
--
-string
--
-vector
--
-Alergy.h
-/cygdrive/c/Users/Alejandro/Documents/GitHub/Sim-Hospital-Registration-and-DataBase/Alergy.h
-
 /cygdrive/c/Users/Alejandro/Documents/GitHub/Sim-Hospital-Registration-and-DataBase/Alergy.h
 string
 -
@@ -53,6 +41,14 @@ Patient.h
 /cygdrive/c/Users/Alejandro/Documents/GitHub/Sim-Hospital-Registration-and-DataBase/Patient.h
 
 /cygdrive/c/Users/Alejandro/Documents/GitHub/Sim-Hospital-Registration-and-DataBase/Patient.h
+string
+-
+vector
+-
+gender.h
+/cygdrive/c/Users/Alejandro/Documents/GitHub/Sim-Hospital-Registration-and-DataBase/gender.h
+
+/cygdrive/c/Users/Alejandro/Documents/GitHub/Sim-Hospital-Registration-and-DataBase/gender.h
 string
 -
 vector

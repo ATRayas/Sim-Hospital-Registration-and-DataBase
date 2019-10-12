@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/cygdrive/c/Users/Alejandro/Documents/GitHub/Sim-Hospital-Registration-and-DataBase/Address.cpp">
+			<Option target="Patients"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Alejandro/Documents/GitHub/Sim-Hospital-Registration-and-DataBase/Address.h">
+			<Option target="Patients"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Users/Alejandro/Documents/GitHub/Sim-Hospital-Registration-and-DataBase/Alergy.cpp">
 			<Option target="Patients"/>
 		</Unit>
@@ -96,6 +102,9 @@
 			<Option target="Patients"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/Alejandro/Documents/GitHub/Sim-Hospital-Registration-and-DataBase/Patient.h">
+			<Option target="Patients"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Alejandro/Documents/GitHub/Sim-Hospital-Registration-and-DataBase/gender.h">
 			<Option target="Patients"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/Alejandro/Documents/GitHub/Sim-Hospital-Registration-and-DataBase/CMakeLists.txt">

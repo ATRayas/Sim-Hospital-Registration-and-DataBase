@@ -123,6 +123,33 @@ Patients/fast:
 	$(MAKE) -f CMakeFiles/Patients.dir/build.make CMakeFiles/Patients.dir/build
 .PHONY : Patients/fast
 
+Address.o: Address.cpp.o
+
+.PHONY : Address.o
+
+# target to build an object file
+Address.cpp.o:
+	$(MAKE) -f CMakeFiles/Patients.dir/build.make CMakeFiles/Patients.dir/Address.cpp.o
+.PHONY : Address.cpp.o
+
+Address.i: Address.cpp.i
+
+.PHONY : Address.i
+
+# target to preprocess a source file
+Address.cpp.i:
+	$(MAKE) -f CMakeFiles/Patients.dir/build.make CMakeFiles/Patients.dir/Address.cpp.i
+.PHONY : Address.cpp.i
+
+Address.s: Address.cpp.s
+
+.PHONY : Address.s
+
+# target to generate assembly for a file
+Address.cpp.s:
+	$(MAKE) -f CMakeFiles/Patients.dir/build.make CMakeFiles/Patients.dir/Address.cpp.s
+.PHONY : Address.cpp.s
+
 Alergy.o: Alergy.cpp.o
 
 .PHONY : Alergy.o
@@ -213,6 +240,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Patients"
+	@echo "... Address.o"
+	@echo "... Address.i"
+	@echo "... Address.s"
 	@echo "... Alergy.o"
 	@echo "... Alergy.i"
 	@echo "... Alergy.s"
