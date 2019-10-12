@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/Patients.dir/Patient.cpp.o CMakeFiles/Patients.dir/Alergy.cpp.o CMakeFiles/Patients.dir/OverArch.cpp.o  -o Patients.exe -Wl,--out-implib,libPatients.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

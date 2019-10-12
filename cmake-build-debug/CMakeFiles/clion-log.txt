@@ -1,0 +1,4 @@
+C:\Users\Alejandro\.CLion2019.1\system\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/c/Users/Alejandro/Documents/GitHub/Sim-Hospital-Registration-and-DataBase
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /cygdrive/c/Users/Alejandro/Documents/GitHub/Sim-Hospital-Registration-and-DataBase/cmake-build-debug
