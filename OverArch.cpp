@@ -84,11 +84,59 @@ Alergy inputAllergy(){
 
 }
 
-patientFullTotal decisionRedo(){
-    patientFullTotal patientDataBaseTemp;
-    patientData newPatientTemp;
+Address inputAddress(){
+    Address address;
+    cout << "State: ";
+    string tempState;
+    cin >> tempState;
+    cout << endl;
+    cout << "City: " << endl;
+    string tempCity;
+    cin >> tempCity;
+    cout << endl;
+    cout << "Address number: " << endl;
+    int tempAddNum;
+    cin >> tempAddNum;
+    cout << endl;
+    cout << "Street name: " << endl;
+    string tempStreetName;
+    cin >> tempStreetName;
+    cout << endl;
+    address.newPatientAddressStart(tempState, tempCity, tempAddNum, tempStreetName);
+    return address;
+
+
+}
+
+Patient inputPatientBasicInfo(){
+    Patient tempPatient;
+    cout << "Name: ";
+    string tempPatientName;
+    cin >> tempPatientName;
+    cout << endl;
+    cout << "Phone number: " << endl;
+    string tempPatientPhone;
+    cin >> tempPatientPhone;
+    cout << endl;
+    cout << "Emergency contact number: ";
+    string tempEmergencyConNum;
+    cin >> tempEmergencyConNum;
+    cout << endl;
+    cout << "Patient DOB in XX/XX/XXXX Format: ";
+    string tempDOB;
+    cin >> tempDOB;
+    cout << endl;
+    cout << "Gender: ";
+    string tempGender;
+    cin >> tempGender;
+    cout << endl;
+    tempPatient.dataStart(tempPatientName, tempPatientPhone, tempEmergencyConNum, tempDOB, tempGender);
+}
+
+patientData decisionRedo(patientData newPatientTemp){
     Patient patientTemp;
     Alergy alergyDataTemp;
+    Address addressTemp;
     bool time = false;
     while(time == false) {
         cout << "Enter save to finish entry. Enter patient to redo patient data. "
@@ -98,14 +146,14 @@ patientFullTotal decisionRedo(){
         cout << endl;
         if (userInput == "save") {
             time = true;
-            patientDataBaseTemp.holder.push_back(newPatientTemp);
-            return patientDataBaseTemp;
+            return newPatientTemp;
         }
         else if (userInput == "patient"){
-            alergyDataTemp = inputAllergy();
-            newPatientTemp.patientAllergy = alergyDataTemp;
+
         }
         else if (userInput == "allergies"){
+            alergyDataTemp = inputAllergy();
+            newPatientTemp.patientAllergy = alergyDataTemp;
 
         }
         else if (userInput == "address"){
@@ -153,19 +201,21 @@ int main(){
         }
         else {
             cout << "Task order of entering in new Patient Info:" << endl;
+            cout << "1: Enter Patient Data:"<< endl;
+            cout << "2: Does Patient have allergies enter yes for yes and no for no:" << endl;
+            cout << "3: Enter Patient's Address info:" << endl;
+
             patientData newPatient;
-            cout << "1: Enter Patient Data: name, phone number, emergency contact number, and gender" << endl;
+            cout << "1: Enter Patient Data:"<< endl;
+            patient = inputPatientBasicInfo();
+            newPatient.patientInfo = patient;
             cout << "2: Does Patient have allergies enter yes for yes and no for no:" << endl;
             alergyData = inputAllergy();
-            cout << "3: Enter Patient's Address info: reporter's name, symptoms,"
-                    " description of allergy/allergies, severity number: " << endl;
-            patient.dataStart("Alejandro Rayas", "6026961550", "None", "09/26/1995", "Male");
-            cout << "Task 1 complete" << endl;
-            newPatient.patientInfo = patient;
-            alergyData.dataStart("Faustino Rayas", {"Asthma"}, "difficulty breathing", 2);
-            cout << "Task 2 complete" << endl;
             newPatient.patientAllergy = alergyData;
-            patientDataBase = decisionRedo();
+            cout << "3: Enter Patient's Address info:" << endl;
+            addressData = inputAddress();
+            newPatient.address = addressData;
+            newPatient = decisionRedo(newPatient); // While loop to check if data input is done.
         }
 
 
@@ -173,3 +223,10 @@ int main(){
     //patientDataBase.holder
     return 0;
 }
+//            TESTING INPUT BELOW------********************************************************
+//            patient.dataStart("Alejandro Rayas", "6026961550", "None", "09/26/1995", "Male");
+//            cout << "Task 1 complete" << endl;
+//            newPatient.patientInfo = patient;
+//            alergyData.dataStart("Faustino Rayas", {"Asthma"}, "difficulty breathing", 2);
+//            cout << "Task 2 complete" << endl;
+//            newPatient.patientAllergy = alergyData;
