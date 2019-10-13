@@ -201,9 +201,9 @@ int main(){
         }
         else {
             cout << "Task order of entering in new Patient Info:" << endl;
-            cout << "1: Enter Patient Data:"<< endl;
-            cout << "2: Does Patient have allergies enter yes for yes and no for no:" << endl;
-            cout << "3: Enter Patient's Address info:" << endl;
+            cout << "1: Basic Patient Info Data:"<< endl;
+            cout << "2: Allergy Data:" << endl;
+            cout << "3: Patient Address Address Data:" << endl;
 
             patientData newPatient;
             cout << "1: Enter Patient Data:"<< endl;
