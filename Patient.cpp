@@ -10,8 +10,12 @@ Patient::Patient(){
 
 }
 
-void Patient::setNamePatient(string patientName){
-    name = patientName;
+void Patient::setFNamePatient(string patientFName){
+    Fname = patientFName;
+}
+
+void Patient::setLNamePatient(string patientLName){
+    Lname = patientLName;
 }
 
 void Patient::setPhonePatient(string patientPhone) {
@@ -30,9 +34,10 @@ void Patient::setSexPatient(string sexP) {
     sex = sexP;
 }
 
-void Patient::dataStart(string patientName, string patientPhone,
+void Patient::dataStart(string patientFirstName, string patientLastName, string patientPhone,
         string patientEC, string patientDOB, string sexP) {
-    name = patientName;
+    Fname = patientFirstName;
+    Lname = patientLastName;
     phoneNumber = patientPhone;
     emergencyContact = patientEC;
     dob = patientDOB;
@@ -40,9 +45,11 @@ void Patient::dataStart(string patientName, string patientPhone,
 }
 
 void Patient::dataOut() {
-    cout << "Patient name: " << name << endl;
+    cout << "Patient first name: " << Fname << endl;
+    cout << "Patient last name: " << Lname << endl;
     cout << "Patient phone number: " << phoneNumber << endl;
     cout << "Patient emergency contact number: " << emergencyContact << endl;
+    cout << "Patient date of birth: " << dob << endl;
     cout << "Patient Gender: " << sex << endl;
 
 }

@@ -13,6 +13,7 @@ struct patientData {
     Patient patientInfo;
     Address address;
     Alergy patientAllergy;
+    long PatientID;
 };
 
 class patientFullTotal{
@@ -20,6 +21,37 @@ public:
     vector <patientData> holder;
 
 };
+
+Patient inputPatientBasicInfo(){
+    Patient tempPatient;
+    cout << "Patient's first name: ";
+    string tempPatientFName;
+    cin >> tempPatientFName;
+    cout << endl;
+    cout << "Patient's last name: ";
+    string tempPatientLName;
+    cin >> tempPatientLName;
+    cout << endl;
+    cout << "Patient's phone number: ";
+    string tempPatientPhone;
+    cin >> tempPatientPhone;
+    cout << endl;
+    cout << "Patient's emergency contact number: ";
+    string tempEmergencyConNum;
+    cin >> tempEmergencyConNum;
+    cout << endl;
+    cout << "Patient's  DOB in XX/XX/XXXX Format: ";
+    string tempDOB;
+    cin >> tempDOB;
+    cout << endl;
+    cout << "Patient's gender: ";
+    string tempGender;
+    cin >> tempGender;
+    cout << endl;
+    tempPatient.dataStart(tempPatientFName, tempPatientLName, tempPatientPhone,
+            tempEmergencyConNum, tempDOB, tempGender);
+    return tempPatient;
+}
 
 Alergy inputAllergy(){
     Alergy alergy;
@@ -108,31 +140,6 @@ Address inputAddress(){
 
 }
 
-Patient inputPatientBasicInfo(){
-    Patient tempPatient;
-    cout << "Name: ";
-    string tempPatientName;
-    cin >> tempPatientName;
-    cout << endl;
-    cout << "Phone number: " << endl;
-    string tempPatientPhone;
-    cin >> tempPatientPhone;
-    cout << endl;
-    cout << "Emergency contact number: ";
-    string tempEmergencyConNum;
-    cin >> tempEmergencyConNum;
-    cout << endl;
-    cout << "Patient DOB in XX/XX/XXXX Format: ";
-    string tempDOB;
-    cin >> tempDOB;
-    cout << endl;
-    cout << "Gender: ";
-    string tempGender;
-    cin >> tempGender;
-    cout << endl;
-    tempPatient.dataStart(tempPatientName, tempPatientPhone, tempEmergencyConNum, tempDOB, tempGender);
-}
-
 patientData decisionRedo(patientData newPatientTemp){
     Patient patientTemp;
     Alergy alergyDataTemp;
@@ -168,7 +175,7 @@ int main(){
     Patient patient;
     Alergy alergyData;
     Address addressData;
-    bool time = false;
+    bool cancel = false;
     bool checker = false;
     while(checker == false) {
         cout << "Type 1 for search of patient" << endl;
@@ -205,17 +212,44 @@ int main(){
             cout << "2: Allergy Data:" << endl;
             cout << "3: Patient Address Address Data:" << endl;
 
-            patientData newPatient;
-            cout << "1: Enter Patient Data:"<< endl;
-            patient = inputPatientBasicInfo();
-            newPatient.patientInfo = patient;
-            cout << "2: Does Patient have allergies enter yes for yes and no for no:" << endl;
-            alergyData = inputAllergy();
-            newPatient.patientAllergy = alergyData;
-            cout << "3: Enter Patient's Address info:" << endl;
-            addressData = inputAddress();
-            newPatient.address = addressData;
-            newPatient = decisionRedo(newPatient); // While loop to check if data input is done.
+            cout << "To cancel new Patient input type cancel otherwise type anything else: ";
+            string nurseinputCancel;
+            cin >> nurseinputCancel;
+            if (nurseinputCancel == "cancel"){
+                cout << endl;
+            }
+            else {
+                cout << endl;
+                patientData newPatient;
+                cout << "1: Enter Patient Data:" << endl;
+                patient = inputPatientBasicInfo();
+                newPatient.patientInfo = patient;
+
+                cout << "To cancel new Patient input type cancel otherwise type anything else: ";
+                cin >> nurseinputCancel;
+                if (nurseinputCancel == "cancel"){
+                    cout << endl;
+                }
+                else {
+                    cout << endl;
+                    cout << "2: Does Patient have allergies enter yes for yes and no for no:" << endl;
+                    alergyData = inputAllergy();
+                    newPatient.patientAllergy = alergyData;
+                    cout << "To cancel new Patient input type cancel otherwise type anything else: ";
+                    cin >> nurseinputCancel;
+                    if (nurseinputCancel == "cancel"){
+                        cout << endl;
+                    }
+                    else {
+                        cout << "3: Enter Patient's Address info:" << endl;
+                        addressData = inputAddress();
+                        newPatient.address = addressData;
+                        newPatient = decisionRedo(newPatient); // While loop to check if data input is done.
+                        newPatient.PatientID = patientDataBase.holder.size() + 1;
+                        patientDataBase.holder.push_back(newPatient); //insert patient data into our vector
+                    }
+                }
+            }
         }
 
 
