@@ -49,7 +49,7 @@ Patient inputPatientBasicInfo(){
     cin >> tempGender;
     cout << endl;
     tempPatient.dataStart(tempPatientFName, tempPatientLName, tempPatientPhone,
-            tempEmergencyConNum, tempDOB, tempGender);
+                          tempEmergencyConNum, tempDOB, tempGender);
     return tempPatient;
 }
 
@@ -169,12 +169,30 @@ patientData decisionRedo(patientData newPatientTemp){
     }
 }
 
-int main(){
-    //initialize
-    patientFullTotal patientDataBase;
+patientFullTotal testData(){
+//          TESTING INPUT BELOW------********************************************************
+    patientFullTotal patientDataBaseTest;
+    patientData newPatient;
     Patient patient;
     Alergy alergyData;
     Address addressData;
+    patient.dataStart("Alejandro", "Rayas", "6026961550", "None", "09/26/1995", "Male");
+    newPatient.patientInfo = patient;
+    alergyData.dataStart("Faustino Rayas", {"Asthma"}, "difficulty breathing", {2});
+    newPatient.patientAllergy = alergyData;
+    newPatient.PatientID = patientDataBaseTest.holder.size() + 1;
+    patientDataBaseTest.holder.push_back(newPatient);
+    return patientDataBaseTest;
+
+}
+
+int main(){
+    //initialize
+    patientFullTotal patientDataBase = testData();
+    Patient patient;
+    Alergy alergyData;
+    Address addressData;
+
     bool cancel = false;
     bool checker = false;
     while(checker == false) {
@@ -257,10 +275,3 @@ int main(){
     //patientDataBase.holder
     return 0;
 }
-//            TESTING INPUT BELOW------********************************************************
-//            patient.dataStart("Alejandro Rayas", "6026961550", "None", "09/26/1995", "Male");
-//            cout << "Task 1 complete" << endl;
-//            newPatient.patientInfo = patient;
-//            alergyData.dataStart("Faustino Rayas", {"Asthma"}, "difficulty breathing", 2);
-//            cout << "Task 2 complete" << endl;
-//            newPatient.patientAllergy = alergyData;
