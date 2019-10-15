@@ -171,6 +171,9 @@ patientData decisionRedo(patientData newPatientTemp){
 
 patientFullTotal testData(){
 //          TESTING INPUT BELOW------********************************************************
+    cout << "Welcome to the Sim-Hospital-Registration-Database Program by Alejandro Rayas" << endl;
+    cout << "This program is pre-loaded with ""fake"" patient data to simulate a hospital database" << endl;
+    cout << "Hope you enjoy!" << endl;
     patientFullTotal patientDataBaseTest;
     patientData newPatient;
     Patient patient;
@@ -184,6 +187,31 @@ patientFullTotal testData(){
     patientDataBaseTest.holder.push_back(newPatient);
     return patientDataBaseTest;
 
+}
+
+int patientFoundChecker(patientFullTotal patientDataBaseSearch) {
+    string nurseSearchFName;
+    string nurseSearchLName;
+    string nurseSearchDOB;
+    cout << "Enter patient's first name: ";
+    cin >> nurseSearchFName;
+    cout << endl;
+    cout << "Enter patient's last name: ";
+    cin >> nurseSearchLName;
+    cout << endl;
+    cout << "Enter patient's DOB name: ";
+    cin >> nurseSearchDOB;
+    cout << endl;
+    for (int i = 0; i < patientDataBaseSearch.holder.size(); i++) {
+        string tempSearchFname = patientDataBaseSearch.holder[i].patientInfo.getFirstName();
+        string tempSearchLname = patientDataBaseSearch.holder[i].patientInfo.getLasttName();
+        string tempSearchDOB = patientDataBaseSearch.holder[i].patientInfo.getDOB();
+        if (tempSearchFname == nurseSearchFName && tempSearchLname == nurseSearchLName
+            && tempSearchDOB == nurseSearchDOB) {
+            return i;
+        }
+    }
+    return 0;
 }
 
 int main(){
@@ -202,7 +230,42 @@ int main(){
         cin >> nurseInput;
         if(nurseInput == 1){
             if (patientDataBase.holder.size() > 0){
+                bool checkPatientExist = false;
+                int checkIfExist = patientFoundChecker(patientDataBase);
+                if(checkIfExist == 0){
+                    cout << "Unable to find patient matching input given" << endl;
+                    cout << "Try again if you believe this is a mistake" << endl;
+                }
+                else{
+                    cout <<"3 options of data to display from patient possible";
+                    cout << "Type 1 for general patient info" << endl;
+                    cout << "Type 2 for patient address info" << endl;
+                    cout << "Type 3 for patient allergy info" << endl;
+                }
+                string nurseSearchFName;
+                string nurseSearchLName;
+                string nurseSearchDOB;
+                cout << "Enter patient's first name: ";
+                cin >> nurseSearchFName;
+                cout << endl;
+                cout << "Enter patient's last name: ";
+                cin >> nurseSearchLName;
+                cout << endl;
+                cout << "Enter patient's DOB name: ";
+                cin >> nurseSearchDOB;
+                cout << endl;
+                for(int i = 0; i < patientDataBase.holder.size(); i++){
+                    string tempSearchFname = patientDataBase.holder[i].patientInfo.getFirstName();
+                    string tempSearchLname = patientDataBase.holder[i].patientInfo.getLasttName();
+                    string tempSearchDOB = patientDataBase.holder[i].patientInfo.getDOB();
+                    if(tempSearchFname == nurseSearchFName && tempSearchLname == nurseSearchLName
+                       && tempSearchDOB == nurseSearchDOB){
+                        checkPatientExist = true;
+                        return patientDataBase.holder.[i];
+                    }
+                }
                 patientDataBase.holder[0].patientInfo.dataOut();
+                cout << "ID: "<< patientDataBase.holder[0].PatientID << endl;
 //                cout<< "Enter Patient name then after enter address: ";
 //                string tempName;
 //                string tempAdd;
