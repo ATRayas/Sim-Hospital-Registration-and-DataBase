@@ -8,6 +8,9 @@
 #include "OverArch.h"
 #include "Patient.h"
 #include "Address.h"
+#include <cstdlib>
+
+using namespace std;
 
 struct patientData {
 	Patient patientInfo;
@@ -55,7 +58,7 @@ Patient inputPatientBasicInfo() {
 
 Alergy inputAllergy() {
 	Alergy alergy;
-	cout << "2: Does Patient have allergies enter yes for yes and no for no:" << endl;
+	cout << "2: Does Patient have allergies enter yes for yes and no for no: ";
 	string userInput;
 	cin >> userInput;
 	if (userInput == "yes") {
@@ -111,6 +114,7 @@ Alergy inputAllergy() {
 		return alergy;
 	}
 	else {
+		cout << endl;
 		alergy.dataStart("None", { "None" }, "No allergies noted", { 0 });
 		return alergy;
 	}
@@ -119,21 +123,25 @@ Alergy inputAllergy() {
 
 Address inputAddress() {
 	Address address;
+	cout << endl;
 	cout << "State: ";
 	string tempState;
-	cin >> tempState;
+	cin.ignore();
+	getline(cin, tempState);
 	cout << endl;
-	cout << "City: " << endl;
+	cout << "City: ";
 	string tempCity;
-	cin >> tempCity;
+	cin.ignore();
+	getline(cin, tempCity);
 	cout << endl;
-	cout << "Address number: " << endl;
+	cout << "Address number: ";
 	int tempAddNum;
 	cin >> tempAddNum;
 	cout << endl;
-	cout << "Street name: " << endl;
+	cout << "Street name: ";
 	string tempStreetName;
-	cin >> tempStreetName;
+	cin.ignore();
+	getline(cin, tempStreetName);
 	cout << endl;
 	address.newPatientAddressStart(tempState, tempCity, tempAddNum, tempStreetName);
 	return address;
@@ -146,10 +154,10 @@ patientData decisionRedo(patientData newPatientTemp) {
 	Alergy alergyDataTemp;
 	Address addressTemp;
 	bool time = false;
+	string userInput;
 	while (time == false) {
 		cout << "Enter save to finish entry. Enter patient to redo patient data. "
-			"Enter allergy to redo allergies data. Enter address to redo address data.: ";
-		string userInput;
+			"Enter allergy to redo allergy data. Enter address to redo address data.: ";
 		cin >> userInput;
 		cout << endl;
 		if (userInput == "save") {
@@ -182,6 +190,8 @@ patientFullTotal testData() {
 	Address addressData;
 	patient.dataStart("Alejandro", "Rayas", "6026961550", "None", "09/26/1995", "Male");
 	newPatient.patientInfo = patient;
+	addressData.newPatientAddressStart("Arizona", "Phoneix", 6341, "Verde Lane");
+	newPatient.address = addressData;
 	alergyData.dataStart("Faustino Rayas", { "Asthma" }, "difficulty breathing", { 2 });
 	newPatient.patientAllergy = alergyData;
 	newPatient.PatientID = patientDataBaseTest.holder.size() + 1;
@@ -213,6 +223,46 @@ int patientFoundChecker(patientFullTotal patientDataBaseSearch) {
 		}
 	}
 	return -1;
+}
+
+void falseOptionSelected(int checkIfExistTemp, patientFullTotal patientDataBaseTemp) {
+	bool options = false;
+	bool againOptions = false;
+	while (options == false) {
+		if (againOptions == false) {
+			cout << "Entered false option, to cancel search/viewing of info type 0 otherwise" << endl;
+		}
+		else {
+			cout << "3 options of data to display from patient possible" << endl;
+		}
+		againOptions = true;
+		cout << "Type 1 for general patient info" << endl;
+		cout << "Type 2 for patient address info" << endl;
+		cout << "Type 3 for patient allergy info" << endl;
+		cout << "Type 0 to cancel search/viewing of info" << endl;
+		int nurseInputTemp;
+		cin >> nurseInputTemp;
+		cout << endl;
+		if (nurseInputTemp == 1) {
+			patientDataBaseTemp.holder[checkIfExistTemp].patientInfo.dataOut();
+			cout << "ID: " << patientDataBaseTemp.holder[0].PatientID << endl;
+			cout << endl;
+		}
+		else if (nurseInputTemp == 2) {
+			patientDataBaseTemp.holder[checkIfExistTemp].address.dataOut();
+			cout << endl;
+		}
+		else if (nurseInputTemp == 3) {
+			patientDataBaseTemp.holder[checkIfExistTemp].patientAllergy.dataOut();
+			cout << endl;
+		}
+		else if (nurseInputTemp == 0) {
+			options = true;
+		}
+		else {
+			againOptions = false;
+		}
+	}
 }
 
 int main() {
@@ -262,40 +312,22 @@ int main() {
 								if (nurseInput == 1) {
 									patientDataBase.holder[checkIfExist].patientInfo.dataOut();
 									cout << "ID: " << patientDataBase.holder[0].PatientID << endl;
+									cout << endl;
 								}
 								else if (nurseInput == 2) {
 									patientDataBase.holder[checkIfExist].address.dataOut();
+									cout << endl;
 								}
 								else if (nurseInput == 3) {
 									patientDataBase.holder[checkIfExist].patientAllergy.dataOut();
+									cout << endl;
 								}
 								else if (nurseInput == 0) {
 									lookInfo = false;
 								}
 								else {
 									lookInfo = false;
-									bool options = false;
-									while (options == false) {
-										cout << "Entered false option, to cancel search/viewing of info type 0 otherwise" << endl;
-										cout << "Type 1 for general patient info" << endl;
-										cout << "Type 2 for patient address info" << endl;
-										cout << "Type 3 for patient allergy info" << endl;
-										cin >> nurseInput;
-										cout << endl;
-										if (nurseInput == 1) {
-											patientDataBase.holder[checkIfExist].patientInfo.dataOut();
-											cout << "ID: " << patientDataBase.holder[0].PatientID << endl;
-										}
-										else if (nurseInput == 2) {
-											patientDataBase.holder[checkIfExist].address.dataOut();
-										}
-										else if (nurseInput == 3) {
-											patientDataBase.holder[checkIfExist].patientAllergy.dataOut();
-										}
-										else if (nurseInput == 0) {
-											options = true;
-										}
-									}
+									falseOptionSelected(checkIfExist, patientDataBase);
 								}
 							}
 						}
@@ -349,7 +381,6 @@ int main() {
 				}
 				else {
 					cout << endl;
-					cout << "2: Does Patient have allergies enter yes for yes and no for no:" << endl;
 					alergyData = inputAllergy();
 					newPatient.patientAllergy = alergyData;
 					cout << "To cancel new Patient input type cancel otherwise type anything else: ";

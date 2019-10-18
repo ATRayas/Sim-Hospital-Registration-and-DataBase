@@ -46,13 +46,13 @@ void Alergy::addSym(string sympA, int sev){
 
 void Alergy::dataOut(){
     cout << "Reporter: " << reporter << endl;
-    cout << "Symptoms: ";
+    cout << "Symptom/s: ";
     for (auto const& value : symptoms)
     {
         cout << value << ", ";
     }
     cout << endl;
-    cout << "Severity of symptom: ";
+    cout << "Severity of symptom/s: ";
     for (auto const& value : severity)
     {
         cout << value << ", ";

@@ -39,7 +39,7 @@ void Address::dataOut() {
 	cout << "State: " << state << endl;
 	cout << "City: " << city << endl;
 	cout << "Address Number: " << addressNumber << endl;
-	cout << "Stree Name: " << addressStreetName << endl;
+	cout << "Street Name: " << addressStreetName << endl;
 
 }
 
