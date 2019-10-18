@@ -34,4 +34,12 @@ void Address::newPatientAddressStart(string tempState, string tempCity,
     addressStreetName = tempAddressStreetName;
 }
 
+void Address::dataOut() {
+	cout << "Address Info:" << endl;
+	cout << "State: " << state << endl;
+	cout << "City: " << city << endl;
+	cout << "Address Number: " << addressNumber << endl;
+	cout << "Stree Name: " << addressStreetName << endl;
+
+}
 

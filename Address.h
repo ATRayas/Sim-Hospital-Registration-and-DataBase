@@ -29,6 +29,7 @@ public:
     void setAddressStreetName(string tempAddressStreetName);
     void newPatientAddressStart(string tempState, string tempCity,
             int tempAddressNumber, string tempAddressStreetName);
+	void dataOut();
 
 
 
