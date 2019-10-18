@@ -231,16 +231,39 @@ int main(){
         if(nurseInput == 1){
             if (patientDataBase.holder.size() > 0){
                 bool checkPatientExist = false;
-                int checkIfExist = patientFoundChecker(patientDataBase);
-                if(checkIfExist == 0){
-                    cout << "Unable to find patient matching input given" << endl;
-                    cout << "Try again if you believe this is a mistake" << endl;
-                }
-                else{
-                    cout <<"3 options of data to display from patient possible";
-                    cout << "Type 1 for general patient info" << endl;
-                    cout << "Type 2 for patient address info" << endl;
-                    cout << "Type 3 for patient allergy info" << endl;
+                while(checkPatientExist == false) {
+                    int checkIfExist = patientFoundChecker(patientDataBase);
+                    if (checkIfExist == 0) {
+                        cout << "Unable to find patient matching input given" << endl;
+                        cout << "Try again if you believe this is a mistake" << endl;
+                    } else {
+                        checkPatientExist = true;
+                        cout << "3 options of data to display from patient possible";
+                        cout << "Type 1 for general patient info" << endl;
+                        cout << "Type 2 for patient address info" << endl;
+                        cout << "Type 3 for patient allergy info" << endl;
+                        cout << "Type 0 to cancel search" << endl;
+                        cin >> nurseInput;
+                        if(nurseInput == 1){
+
+                        }
+                        else if(nurseInput == 2){
+
+                        }
+                        else if(nurseInput == 3){
+
+                        }
+                        else if(nurseInput == 0){
+
+                        }
+                        else{
+                            cout << "Entered false option, to cancel search type 0 otherwise" << endl;
+                            cout << "Type 1 for general patient info" << endl;
+                            cout << "Type 2 for patient address info" << endl;
+                            cout << "Type 3 for patient allergy info" << endl;
+                        }
+
+                    }
                 }
                 string nurseSearchFName;
                 string nurseSearchLName;
