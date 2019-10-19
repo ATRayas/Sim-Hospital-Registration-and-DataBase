@@ -9,6 +9,7 @@
 #include "Patient.h"
 #include "Address.h"
 #include <cstdlib>
+#include <unordered_map>
 
 using namespace std;
 
@@ -62,6 +63,7 @@ Alergy inputAllergy() {
 	string userInput;
 	cin >> userInput;
 	if (userInput == "yes") {
+		cout << "Allergy Info: " << endl;
 		cout << "Reporter's name: ";
 		string tempRepoName;
 		cin >> tempRepoName;
@@ -194,7 +196,15 @@ patientFullTotal testData() {
 	newPatient.address = addressData;
 	alergyData.dataStart("Faustino Rayas", { "Asthma" }, "difficulty breathing", { 2 });
 	newPatient.patientAllergy = alergyData;
-	newPatient.PatientID = patientDataBaseTest.holder.size() + 1;
+	newPatient.PatientID = 1;//patientDataBaseTest.holder.size() + 1;
+	patientDataBaseTest.holder.push_back(newPatient);
+	patient.dataStart("Bob", "Ray", "6026961550", "None", "12/26/1995", "Male");
+	newPatient.patientInfo = patient;
+	addressData.newPatientAddressStart("Arizona", "Phoneix", 6341, "Verde Lane");
+	newPatient.address = addressData;
+	alergyData.dataStart("Faustino Rayas", { "Asthma" }, "difficulty breathing", { 2 });
+	newPatient.patientAllergy = alergyData;
+	newPatient.PatientID = 2;//patientDataBaseTest.holder.size() + 1;
 	patientDataBaseTest.holder.push_back(newPatient);
 	return patientDataBaseTest;
 
@@ -265,9 +275,73 @@ void falseOptionSelected(int checkIfExistTemp, patientFullTotal patientDataBaseT
 	}
 }
 
+void longSearch() {
+
+}
+
+long mapIDSearch(patientFullTotal tempDataBase) {
+	cout << "Enter patient ID: ";
+
+	long tempID;
+	cin >> tempID;
+	//long check = tempDataBase.holder[tempID - 1].PatientID;
+	cout << endl;
+	unordered_map<long, int> hash;
+	auto end = hash.end();
+	long solution;
+
+	for (int i = 0; i < tempDataBase.holder.size(); i++) {
+		long check = tempDataBase.holder[i].PatientID;
+		auto find = hash.find(tempID); //find returns hash.end() if it is unable to find that value in hash.
+		if (find == end) {
+			hash.emplace(tempDataBase.holder[i].PatientID, i); //basically adds that element value and position in our vector of nums
+		}
+		else {
+			solution = find->second;
+			return solution;
+		}
+	}
+	return -1;
+}
+
+void foundPatient(patientFullTotal tempDataBase, int location) {
+	int nurseInput;
+	bool lookInfo = true;
+	while (lookInfo == true) {
+		cout << "3 options of data to display from patient possible" << endl;
+		cout << "Type 1 for general patient info" << endl;
+		cout << "Type 2 for patient address info" << endl;
+		cout << "Type 3 for patient allergy info" << endl;
+		cout << "Type 0 to cancel search/viewing of info" << endl;
+		cin >> nurseInput;
+		cout << endl;
+		if (nurseInput == 1) {
+			tempDataBase.holder[location].patientInfo.dataOut();
+			cout << "ID: " << tempDataBase.holder[0].PatientID << endl;
+			cout << endl;
+		}
+		else if (nurseInput == 2) {
+			tempDataBase.holder[location].address.dataOut();
+			cout << endl;
+		}
+		else if (nurseInput == 3) {
+			tempDataBase.holder[location].patientAllergy.dataOut();
+			cout << endl;
+		}
+		else if (nurseInput == 0) {
+			lookInfo = false;
+		}
+		else {
+			lookInfo = false;
+			falseOptionSelected(location, tempDataBase);
+		}
+	}
+}
 int main() {
 	//initialize
+
 	patientFullTotal patientDataBase = testData();
+	long counterPatients = patientDataBase.holder.size() + 1;
 	Patient patient;
 	Alergy alergyData;
 	Address addressData;
@@ -281,74 +355,50 @@ int main() {
 		cin >> nurseInput;
 		if (nurseInput == 1) {
 			if (patientDataBase.holder.size() > 0) {
-				string nurseCancel;
-				bool checkPatientExist = false;
-				while (checkPatientExist == false) {
-					int checkIfExist = patientFoundChecker(patientDataBase);
-
-					if (checkIfExist == -1) {
-						cout << "Unable to find patient matching input given" << endl;
-						cout << "If you want to cancel type cancel other wise type anything to try again: " << endl;
-						cin >> nurseCancel;
-						if (nurseCancel == "cancel") {
-							checkPatientExist = true;
-						}
-					}
-					else {
-						if (nurseCancel == "cancel") {
-
+				string checkPatientID;
+				cout << "Type yes if you know patient ID number:" << endl;
+				cout << "Type anything else to continue:" << endl;
+				cin >> checkPatientID;
+				if (checkPatientID == "yes") {
+					bool IdBoolean = false;
+					while (IdBoolean == false) {
+						string cancelID;
+						int doesExistID = mapIDSearch(patientDataBase);
+						if (doesExistID == -1) {
+							cout << "Unable to find patient matching input given" << endl;
+							cout << "If you want to cancel type cancel other wise type anything to try again: " << endl;
+							cin >> cancelID;
 						}
 						else {
-							bool lookInfo = true;
-							checkPatientExist = true;
-							while (lookInfo == true) {
-								cout << "3 options of data to display from patient possible" << endl;
-								cout << "Type 1 for general patient info" << endl;
-								cout << "Type 2 for patient address info" << endl;
-								cout << "Type 3 for patient allergy info" << endl;
-								cout << "Type 0 to cancel search/viewing of info" << endl;
-								cin >> nurseInput;
-								cout << endl;
-								if (nurseInput == 1) {
-									patientDataBase.holder[checkIfExist].patientInfo.dataOut();
-									cout << "ID: " << patientDataBase.holder[0].PatientID << endl;
-									cout << endl;
-								}
-								else if (nurseInput == 2) {
-									patientDataBase.holder[checkIfExist].address.dataOut();
-									cout << endl;
-								}
-								else if (nurseInput == 3) {
-									patientDataBase.holder[checkIfExist].patientAllergy.dataOut();
-									cout << endl;
-								}
-								else if (nurseInput == 0) {
-									lookInfo = false;
-								}
-								else {
-									lookInfo = false;
-									falseOptionSelected(checkIfExist, patientDataBase);
-								}
-							}
+							IdBoolean = true;
+							foundPatient(patientDataBase, doesExistID);
+						}
+
+						if (cancelID == "cancel") {
+							IdBoolean = true;
 						}
 
 					}
 				}
-				//                cout<< "Enter Patient name then after enter address: ";
-				//                string tempName;
-				//                string tempAdd;
-				//                cin >> tempName;
-				//                cout << endl;
-				//                cin >> tempAdd;
-				//                vector<int>::iterator it = find(patientDataBase.holder.begin(), patientDataBase.holder.end(), tempAdd);
-				//                tempName = find (patientDataBase.holder.begin(), vec.end(), ser);
-				//                if (it != vec.end())
-				//                {
-				//                    std::cout << "Element " << ser <<" found at position : " ;
-				//                    std:: cout << it - vec.begin() + 1 << "\n" ;
-				//                }
-				//                else
-				//                    std::cout << "Element not found.\n\n";
+				else {
+					string nurseCancel;
+					bool checkPatientExist = false;
+					while (checkPatientExist == false) {
+						int checkIfExist = patientFoundChecker(patientDataBase);
+						if (checkIfExist == -1) {
+							cout << "Unable to find patient matching input given" << endl;
+							cout << "If you want to cancel type cancel other wise type anything to try again: " << endl;
+							cin >> nurseCancel;
+							if (nurseCancel == "cancel") {
+								checkPatientExist = true;
+							}
+						}
+						else {
+							checkPatientExist = true;
+							foundPatient(patientDataBase, checkIfExist);
+						}
+					}
+				}
 			}
 			else {
 				cout << "Database is empty please add patient data first" << endl;
@@ -393,14 +443,12 @@ int main() {
 						addressData = inputAddress();
 						newPatient.address = addressData;
 						newPatient = decisionRedo(newPatient); // While loop to check if data input is done.
-						newPatient.PatientID = patientDataBase.holder.size() + 1;
+						newPatient.PatientID = counterPatients;
 						patientDataBase.holder.push_back(newPatient); //insert patient data into our vector
 					}
 				}
 			}
 		}
-
-
 	}
 	return 0;
 }
