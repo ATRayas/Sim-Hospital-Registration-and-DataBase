@@ -1,2 +1,6 @@
 # Sim-Hospital-Registration-and-DataBase
-Just a side project in an attempt to mimic realistic hosptial info that would be found on hospital computers. This also includes the functionality of hospital computers as well.
+Personal project with the purpose to mimic a realistic hospital patient archive (patient info: Names, addresses, Allergies, etc.)
+
+Two main functions: Search for patient and insert new patient. Both functions utilize vectors to hold data, and search has an optional O(1) search with a hash map if user knows patient’s ID number other-wise O(n).
+
+Tech: C++, Year: 2019
