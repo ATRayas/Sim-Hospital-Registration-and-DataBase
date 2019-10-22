@@ -214,6 +214,7 @@ int patientFoundChecker(patientFullTotal patientDataBaseSearch) {
 	string nurseSearchFName;
 	string nurseSearchLName;
 	string nurseSearchDOB;
+	string nurseSearchPhoneNumber;
 	cout << "Enter patient's first name: ";
 	cin >> nurseSearchFName;
 	cout << endl;
@@ -223,12 +224,16 @@ int patientFoundChecker(patientFullTotal patientDataBaseSearch) {
 	cout << "Enter patient's DOB name: ";
 	cin >> nurseSearchDOB;
 	cout << endl;
+	cout << "Enter patient's phone number: ";
+	cin >> nurseSearchPhoneNumber;
+	cout << endl;
 	for (int i = 0; i < patientDataBaseSearch.holder.size(); i++) {
 		string tempSearchFname = patientDataBaseSearch.holder[i].patientInfo.getFirstName();
 		string tempSearchLname = patientDataBaseSearch.holder[i].patientInfo.getLasttName();
 		string tempSearchDOB = patientDataBaseSearch.holder[i].patientInfo.getDOB();
+		string tempSearchPhoneNumber = patientDataBaseSearch.holder[i].patientInfo.getPhoneNum();
 		if (tempSearchFname == nurseSearchFName && tempSearchLname == nurseSearchLName
-			&& tempSearchDOB == nurseSearchDOB) {
+			&& tempSearchDOB == nurseSearchDOB && tempSearchPhoneNumber == nurseSearchPhoneNumber) {
 			return i;
 		}
 	}
